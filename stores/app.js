@@ -11,4 +11,4 @@ export default function() {
     state,
     increment 
   }
-})
+}
