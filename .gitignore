@@ -1,0 +1,16 @@
+node_modules
+*.log*
+.nuxt
+.nitro
+.cache
+.output
+
+# env
+.env
+.env.local
+.env.production
+
+dist
+
+# macOS
+.DS_Store

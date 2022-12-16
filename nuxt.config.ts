@@ -8,6 +8,8 @@ export default defineNuxtConfig({
 		}
 	},
 
+  modules: [ '@pinia/nuxt' ],
+
 	buildModules: ['@nuxtjs/tailwindcss'],
 
 	tailwindcss: {
@@ -17,4 +19,22 @@ export default defineNuxtConfig({
 		injectPosition: 0,
 		viewer: true,
 	},
+
+  runtimeConfig: {
+    public: {
+      api: {
+        baseURL: '/',
+        redirectOn401: {
+          path: '/auth/login',
+          replace: true,
+        },
+        authorization: {
+          property: 'auth_token',
+          header: 'Authorization',
+          type: 'Token',
+          cookie: 'token',
+        }
+      }
+    },
+  }
 })
