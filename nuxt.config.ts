@@ -1,40 +1,36 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-	app: {
-		head: {
-			link: [
-				{ rel: 'icon', type: 'image/png', href: '/favicon.png' },
-			]
-		}
-	},
+  app: {
+    head: {
+      link: [{ rel: "icon", type: "image/png", href: "/favicon.png" }],
+    },
+  },
 
-  modules: [ '@pinia/nuxt' ],
+  modules: ["@pinia/nuxt", "@nuxtjs/tailwindcss"],
 
-	buildModules: ['@nuxtjs/tailwindcss'],
-
-	tailwindcss: {
-		cssPath: '~/assets/css/tailwind.css',
-		configPath: 'tailwind.config.js',
-		exposeConfig: false,
-		injectPosition: 0,
-		viewer: true,
-	},
+  tailwindcss: {
+    cssPath: "~/assets/css/tailwind.css",
+    configPath: "tailwind.config.js",
+    exposeConfig: false,
+    injectPosition: 0,
+    viewer: true,
+  },
 
   runtimeConfig: {
     public: {
       api: {
-        baseURL: '/',
+        baseURL: process.env.API_BASE_URL,
         redirectOn401: {
-          path: '/auth/login',
+          path: "/auth/login",
           replace: true,
         },
         authorization: {
-          property: 'auth_token',
-          header: 'Authorization',
-          type: 'Token',
-          cookie: 'token',
-        }
-      }
+          property: "auth_token",
+          header: "Authorization",
+          type: "Token",
+          cookie: "token",
+        },
+      },
     },
-  }
-})
+  },
+});
